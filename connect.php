@@ -45,12 +45,12 @@ if ($conn->connect_error) {
             header("Location: ok.html?registration=success");
             exit();
         } else {
-            header("Location: about.html?registration=error");
+            header("Location: Registration.html?registration=error");
             exit();
         }
     } else {
         $conn->close();
-        header("Location: about.html?registration=error");
+        header("Location: Registration.html?registration=error");
         exit();
     }
 }

@@ -28,8 +28,11 @@ if ($result->num_rows > 0) {
     exit();
 } else {
     // User credentials are incorrect, display an error message
-    echo "Invalid email or password.";
+    header ("Location: error.html");
 }
 
 $conn->close();
+header("Location: error.html");
+        exit();
+    
 ?>
