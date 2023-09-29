@@ -24,7 +24,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // User credentials are correct, perform login actions
     // For example, redirect to a dashboard page
-    header("Location: dashboard.php");
+    header("Location: dashboard.html");
     exit();
 } else {
     // User credentials are incorrect, display an error message

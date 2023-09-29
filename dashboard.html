@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>FITNESSFIRE Registration</title>
@@ -20,9 +21,25 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Adjust these styles as needed to fit your layout */
+        .iframe-container {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 
 </head>
 <body>
+
+    
   <script src="script.js"></script>
 
    
@@ -76,14 +93,16 @@
                                     <h2>Welcome to Your Dashboard </h2>
                                 </center>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Hero End -->
-        <br>
-        <br>
+
+        <div class="iframe-container">
+            <iframe src="qr.html" seamless></iframe>
 
             <section class="services-area">
                 <!-- ... Existing code ... -->

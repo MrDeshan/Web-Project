@@ -7,6 +7,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
 
     <!-- CSS here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -20,6 +22,8 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <link rel="stylesheet" href="style1.css">
 
 </head>
 <body>
@@ -257,14 +261,34 @@
                     <center>
                     <img src="bmi.jpg" alt="BMI Photo" width="400" height="700">
                     </center>
+                    <!-- Add this button and canvas element where you want the QR code -->
+                    <center>
+                    <div class="wrapper">
+                        <header>
+                          <center><h1>QR Code ID Generator</h1>
+                          <p>Please Enter Your Valid NIC Number</p>
+                        </header>
+                        <div class="form">
+                          <input type="text" spellcheck="false" placeholder="Enter Your NIC Number">
+                          <small class="form-text text-muted">Enter your New NIC number or Old NIC number <br>(optional 'V' at the end).</small>
+                          <button>Generate QR Code</button>
+                        </div>
+                        <div class="qr-code">
+                          <img src="" alt="qr-code">
+                        </div>
+                      </div>
+                  
+                      <script src="script1.js"></script>
+                    </center>
+
                 </div>
             </div>
         </div>
-      
+       
         
         <br>
         <br>
-        <    <section class="services-area">
+           <section class="services-area">
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
@@ -357,6 +381,34 @@
 </div>
 
 <!-- JS here -->
+<script>
+const wrapper = document.querySelector(".wrapper"),
+qrInput = wrapper.querySelector(".form input"),
+generateBtn = wrapper.querySelector(".form button"),
+qrImg = wrapper.querySelector(".qr-code img");
+let preValue;
+
+generateBtn.addEventListener("click", () => {
+    let qrValue = qrInput.value.trim();
+    if(!qrValue || preValue === qrValue) return;
+    preValue = qrValue;
+    generateBtn.innerText = "Generating QR Code...";
+    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`;
+    qrImg.addEventListener("load", () => {
+        wrapper.classList.add("active");
+        generateBtn.innerText = "Generate QR Code";
+    });
+});
+
+qrInput.addEventListener("keyup", () => {
+    if(!qrInput.value.trim()) {
+        wrapper.classList.remove("active");
+        preValue = "";
+    }
+});
+</script>
+
+</script>
 
 <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
 <!-- Jquery, Popper, Bootstrap -->
